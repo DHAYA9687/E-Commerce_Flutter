@@ -11,9 +11,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List categories = [
     'images/head.jpg',
-    'images/head.jpg',
-    'images/head.jpg',
-    'images/head.jpg',
+    'images/Pods.jpg',
+    'images/phone.jpg',
+    'images/laptop1.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -153,17 +153,35 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   children: const [
                     AllProducts(
-                        image: "images/head.jpg",
-                        name: "Headphone",
-                        price: "\$100"),
+                      image: "images/head.jpg",
+                      name: "Headphone",
+                      price: "\$100",
+                    ),
                     AllProducts(
-                        image: "images/head.jpg",
-                        name: "Headphone",
-                        price: "\$100"),
+                      image: "images/Pods.jpg",
+                      name: "Airpods",
+                      price: "\$200",
+                    ),
                     AllProducts(
-                        image: "images/head.jpg",
-                        name: "Phone",
-                        price: "\$200"),
+                      image: "images/laptop3.png",
+                      name: "Phone",
+                      price: "\$300",
+                    ),
+                    AllProducts(
+                      image: "images/phone2.png",
+                      name: "Laptop",
+                      price: "\$400",
+                    ),
+                    AllProducts(
+                      image: "images/mouse.png",
+                      name: "Mouse",
+                      price: "\$300",
+                    ),
+                    AllProducts(
+                      image: "images/laptop2.jpg",
+                      name: "Laptop",
+                      price: "\$500",
+                    ),
                   ],
                 ),
               )

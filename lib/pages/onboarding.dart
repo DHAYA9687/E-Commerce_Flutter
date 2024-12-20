@@ -20,8 +20,8 @@ class _OnboardingState extends State<OnBoarding> {
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    "https://cdn.pixabay.com/photo/2023/03/23/22/56/headphones-7872990_960_720.jpg",
+                  child: Image.asset(
+                    "images/head1.png",
                     height: 450,
                     width: 350,
                     fit: BoxFit.cover,
@@ -55,7 +55,7 @@ class _OnboardingState extends State<OnBoarding> {
                       onTap: () {
                         Navigator.pushNamed(context, '/first');
                         // ignore: avoid_print
-                        print("goes to home");
+                        // print("goes to home");
                       },
                       child: Text(
                         "Next",

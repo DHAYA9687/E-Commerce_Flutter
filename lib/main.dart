@@ -1,7 +1,10 @@
 import 'package:e_commerce/pages/navigationbar.dart';
-import 'package:e_commerce/pages/onboarding.dart';
+// import 'package:e_commerce/pages/onboarding.dart';
+import 'package:e_commerce/pages/product_page.dart';
+// import 'package:e_commerce/pages/onboarding.dart';
+// import 'package:e_commerce/pages/product_page.dart';
+// import 'package:e_commerce/pages/onboarding.dart';
 import 'package:flutter/material.dart';
-// import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoarding(),
+      home: const ProductPage(),
       routes: {
         '/first': (context) {
           return const BottomNav();
