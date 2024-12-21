@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                       price: "\$200",
                     ),
                     AllProducts(
-                      image: "images/laptop3.png",
+                      image: "images/laptop3-nbg.png",
                       name: "Phone",
                       price: "\$300",
                     ),
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                       price: "\$400",
                     ),
                     AllProducts(
-                      image: "images/mouse.png",
+                      image: "images/mouse-nbg.png",
                       name: "Mouse",
                       price: "\$300",
                     ),

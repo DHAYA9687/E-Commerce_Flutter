@@ -15,8 +15,9 @@ class _ProductPageState extends State<ProductPage> {
       backgroundColor: const Color(0xFFfef5f1),
       body: Container(
         // margin: const EdgeInsets.symmetric(horizontal: 20.0),
-        padding: const EdgeInsets.only(top: 50.0),
+        padding: const EdgeInsets.only(top: 25.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Back Button Row
@@ -42,7 +43,7 @@ class _ProductPageState extends State<ProductPage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      "Images/head-nbg.png",
+                      "images/head-nbg.png",
                       height: 350,
                       width: 350,
                       fit: BoxFit.cover,

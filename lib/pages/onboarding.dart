@@ -21,9 +21,9 @@ class _OnboardingState extends State<OnBoarding> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    "images/head1.png",
+                    "images/head-nbg.png",
                     height: 450,
-                    width: 350,
+                    width: 450,
                     fit: BoxFit.cover,
                   ),
                 ),
