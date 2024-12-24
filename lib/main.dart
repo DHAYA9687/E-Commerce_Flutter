@@ -1,6 +1,7 @@
 import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/pages/login.dart';
 import 'package:e_commerce/pages/navigationbar.dart';
+import 'package:e_commerce/pages/onboarding.dart';
 import 'package:e_commerce/pages/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Signup(),
+      home: const OnBoarding(),
       routes: {
         '/first': (context) => const BottomNav(),
         '/signup': (context) => const Signup(),

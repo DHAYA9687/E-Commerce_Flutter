@@ -17,10 +17,13 @@ class _SignupState extends State<Signup> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  void showCustomSnackBar(BuildContext context, String message) {
+
+  void showCustomSnackBar(BuildContext context, String message, String? err) {
+    Color bgcolor = err == "success" ? Colors.green : Colors.red;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
+        backgroundColor: bgcolor,
         duration: Duration(seconds: 2), // Adjust duration as needed
       ),
     );
@@ -33,14 +36,15 @@ class _SignupState extends State<Signup> {
           email: emailController.text,
           password: passwordController.text,
         );
-        showCustomSnackBar(context, "User Registered Successfully");
+        showCustomSnackBar(context, "User Registered Successfully", "success");
         return true;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
-          showCustomSnackBar(context, "The password provided is too weak");
+          showCustomSnackBar(
+              context, "The password provided is too weak", "err");
         } else if (e.code == 'email-already-in-use') {
           showCustomSnackBar(
-              context, "The account already exists for that email");
+              context, "The account already exists for that email", "err");
         }
         return false;
       }

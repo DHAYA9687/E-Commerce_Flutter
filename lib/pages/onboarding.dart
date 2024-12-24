@@ -53,7 +53,7 @@ class _OnboardingState extends State<OnBoarding> {
                     margin: EdgeInsets.only(right: 20),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/first');
+                        Navigator.pushNamed(context, '/signup');
                         // ignore: avoid_print
                         // print("goes to home");
                       },
