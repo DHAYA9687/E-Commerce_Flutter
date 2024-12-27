@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_print
 
+import 'package:e_commerce/services/database.dart';
+import 'package:e_commerce/services/shared_pref.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/Widgets/support_widget.dart';
+import 'package:random_string/random_string.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -37,6 +40,25 @@ class _SignupState extends State<Signup> {
           password: passwordController.text,
         );
         showCustomSnackBar(context, "User Registered Successfully", "success");
+        final id = randomAlphaNumeric(10);
+        //Shared_Preferences
+        SharedPrefHelper.saveUserId(id);
+        SharedPrefHelper.saveUserName(nameController.text);
+        SharedPrefHelper.saveUserEmail(emailController.text);
+        SharedPrefHelper.saveUserImage(
+          "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
+        );
+        //Map the data
+        Map<String, dynamic> userInfo = {
+          "Name": nameController.text,
+          "Email": emailController.text,
+          "Id": id,
+          "imageUrl":
+              "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
+        };
+        DatabaseMethods databaseMethods = DatabaseMethods();
+        await databaseMethods.addUserDetails(userInfo, id);
+
         return true;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {

@@ -46,15 +46,13 @@ class _LoginState extends State<Login> {
         print(e.code);
         if (e.code == 'user-not-found') {
           showCustomSnack(context, "No user found for that email", "err");
-          return false;
         } else if (e.code == 'wrong-password') {
           showCustomSnack(
               context, "Incorrect password. Please try again", "err");
-          return false;
         } else {
           showCustomSnack(context, "Something went wrong ${e.message}", "err");
-          return false;
         }
+        return false;
       }
     } else {
       print("Error in the validation");
