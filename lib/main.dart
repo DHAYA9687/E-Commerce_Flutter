@@ -1,4 +1,5 @@
 import 'package:e_commerce/firebase_options.dart';
+import 'package:e_commerce/pages/adminpanel.dart';
 import 'package:e_commerce/pages/login.dart';
 import 'package:e_commerce/pages/navigationbar.dart';
 import 'package:e_commerce/pages/onboarding.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const OnBoarding(),
+      home: const Adminpanel(),
       routes: {
         '/first': (context) => const BottomNav(),
         '/signup': (context) => const Signup(),
