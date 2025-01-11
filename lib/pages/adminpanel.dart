@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/Widgets/support_widget.dart';
+import 'package:e_commerce/pages/Admin/home_admin.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -27,18 +28,26 @@ class _AdminpanelState extends State<Adminpanel> {
   }
 
   Future<void> adminLogin() async {
-    FirebaseFirestore.instance.collection("Admin").get().then((snapshot) {
-      for (var element in snapshot.docs) {
-        if (element.data()["Name"] != userNameController.text.trim()) {
-          showCustomSnackBar(context, "Invalid Username", "err");
-        } else if (element.data()["Password"] !=
-            userPasswordController.text.trim()) {
-          showCustomSnackBar(context, "Invalid Password", "err");
-        } else {
-          showCustomSnackBar(context, "Login Successful", "success");
+    FirebaseFirestore.instance.collection("Admin").get().then(
+      (snapshot) {
+        for (var element in snapshot.docs) {
+          if (element.data()["Name"] != userNameController.text.trim()) {
+            showCustomSnackBar(context, "Invalid Username", "err");
+          } else if (element.data()["Password"] !=
+              userPasswordController.text.trim()) {
+            showCustomSnackBar(context, "Invalid Password", "err");
+          } else {
+            showCustomSnackBar(context, "Login Successful", "success");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeAdmin(),
+              ),
+            );
+          }
         }
-      }
-    });
+      },
+    );
   }
 
   @override
@@ -119,9 +128,11 @@ class _AdminpanelState extends State<Adminpanel> {
                             : Icons.visibility_off_outlined,
                       ),
                       onPressed: () {
-                        setState(() {
-                          isPassWord = !isPassWord;
-                        });
+                        setState(
+                          () {
+                            isPassWord = !isPassWord;
+                          },
+                        );
                       },
                     ),
                     border: InputBorder.none,

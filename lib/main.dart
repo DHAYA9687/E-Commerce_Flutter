@@ -1,5 +1,6 @@
 import 'package:e_commerce/firebase_options.dart';
-import 'package:e_commerce/pages/adminpanel.dart';
+import 'package:e_commerce/pages/Admin/home_admin.dart';
+// import 'package:e_commerce/pages/adminpanel.dart';
 import 'package:e_commerce/pages/login.dart';
 import 'package:e_commerce/pages/navigationbar.dart';
 // import 'package:e_commerce/pages/onboarding.dart';
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // Initialize Firebase only if not already initialized
   try {
     await Firebase.initializeApp(
@@ -36,11 +36,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Adminpanel(),
+      home: const HomeAdmin(),
       routes: {
         '/first': (context) => const BottomNav(),
         '/signup': (context) => const Signup(),
         '/login': (context) => const Login(),
+        'home_admin': (context) => const HomeAdmin(),
       },
     );
   }
