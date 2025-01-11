@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/Widgets/support_widget.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Adminpanel extends StatefulWidget {
@@ -9,8 +11,36 @@ class Adminpanel extends StatefulWidget {
 }
 
 class _AdminpanelState extends State<Adminpanel> {
+  bool isPassWord = false;
   TextEditingController userNameController = TextEditingController();
   TextEditingController userPasswordController = TextEditingController();
+
+  void showCustomSnackBar(BuildContext context, String message, String? err) {
+    Color bgcolor = err == "success" ? Colors.green : Colors.red;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: bgcolor,
+        duration: Duration(seconds: 2), // Adjust duration as needed
+      ),
+    );
+  }
+
+  Future<void> adminLogin() async {
+    FirebaseFirestore.instance.collection("Admin").get().then((snapshot) {
+      for (var element in snapshot.docs) {
+        if (element.data()["Name"] != userNameController.text.trim()) {
+          showCustomSnackBar(context, "Invalid Username", "err");
+        } else if (element.data()["Password"] !=
+            userPasswordController.text.trim()) {
+          showCustomSnackBar(context, "Invalid Password", "err");
+        } else {
+          showCustomSnackBar(context, "Login Successful", "success");
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,9 +108,22 @@ class _AdminpanelState extends State<Adminpanel> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextFormField(
-                  obscureText: true,
+                  obscureText: !isPassWord,
                   controller: userPasswordController,
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        isPassWord
+                            ? Icons.visibility
+                            : Icons.visibility_off_outlined,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          isPassWord = !isPassWord;
+                        });
+                      },
+                    ),
                     border: InputBorder.none,
                     hintText: "Password",
                   ),
@@ -97,6 +140,9 @@ class _AdminpanelState extends State<Adminpanel> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: GestureDetector(
+                    onTap: () {
+                      adminLogin();
+                    },
                     child: Text(
                       "LOGIN",
                       style: TextStyle(
