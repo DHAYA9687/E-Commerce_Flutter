@@ -39,8 +39,9 @@ class _LoginState extends State<Login> {
           email: emailController.text,
           password: passwordController.text,
         );
-        print("hello");
         showCustomSnack(context, "Login Successfully", "success");
+        emailController.clear();
+        passwordController.clear();
         return true;
       } on FirebaseAuthException catch (e) {
         print(e.code);
