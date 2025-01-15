@@ -1,4 +1,5 @@
 import 'package:e_commerce/Widgets/support_widget.dart';
+import 'package:e_commerce/pages/categoryproduct.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +15,12 @@ class _HomePageState extends State<HomePage> {
     'images/Pods.jpg',
     'images/phone.jpg',
     'images/laptop1.jpg',
+  ];
+  List categoryname = [
+    'Headphones',
+    'AirPods',
+    'Watch',
+    'Laptop',
   ];
   @override
   Widget build(BuildContext context) {
@@ -120,7 +127,10 @@ class _HomePageState extends State<HomePage> {
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return CategoryTile(image: categories[index]);
+                          return CategoryTile(
+                            image: categories[index],
+                            name: categoryname[index],
+                          );
                         },
                       ),
                     ),
@@ -194,36 +204,46 @@ class _HomePageState extends State<HomePage> {
 }
 
 class CategoryTile extends StatelessWidget {
-  final String image;
-  const CategoryTile({super.key, required this.image});
+  final String image, name;
+  const CategoryTile({super.key, required this.image, required this.name});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10.0),
-      margin: EdgeInsets.only(right: 20.0),
-      height: 100.0,
-      width: 90.0,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              image,
-              height: 70,
-              width: 70,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Icon(Icons.error, size: 70, color: Colors.red);
-              },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Icon(Icons.arrow_forward),
-          ],
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Categoryproduct(category: name),
+          ),
+        )
+      },
+      child: Container(
+        padding: EdgeInsets.all(10.0),
+        margin: EdgeInsets.only(right: 20.0),
+        height: 100.0,
+        width: 90.0,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                image,
+                height: 70,
+                width: 70,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(Icons.error, size: 70, color: Colors.red);
+                },
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Icon(Icons.arrow_forward),
+            ],
+          ),
         ),
       ),
     );
