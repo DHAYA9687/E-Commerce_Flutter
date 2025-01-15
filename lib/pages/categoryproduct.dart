@@ -52,7 +52,7 @@ class _CategoryproductState extends State<Categoryproduct> {
               ? GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.6,
+                      childAspectRatio: 1.0,
                       mainAxisSpacing: 10.0,
                       crossAxisSpacing: 10.0),
                   itemCount: snapshot.data.docs.length,
@@ -61,7 +61,7 @@ class _CategoryproductState extends State<Categoryproduct> {
                     return Container(
                       padding:
                           EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
-                      margin: EdgeInsets.only(right: 20.0),
+                      margin: EdgeInsets.only(right: 10.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -86,7 +86,7 @@ class _CategoryproductState extends State<Categoryproduct> {
                             children: [
                               Text(
                                 // ignore: prefer_interpolation_to_compose_strings
-                                "\$" + ds["Price"],
+                                "\$ " + ds["Price"],
                                 style: TextStyle(
                                   color: Color(0xfffd6f3e),
                                   fontSize: 18.0,
