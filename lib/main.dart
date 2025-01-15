@@ -1,8 +1,9 @@
 import 'package:e_commerce/firebase_options.dart';
 import 'package:e_commerce/pages/Admin/home_admin.dart';
-// import 'package:e_commerce/pages/adminpanel.dart';
+import 'package:e_commerce/pages/adminpanel.dart';
 import 'package:e_commerce/pages/login.dart';
 import 'package:e_commerce/pages/navigationbar.dart';
+import 'package:e_commerce/pages/onboarding.dart';
 // import 'package:e_commerce/pages/onboarding.dart';
 import 'package:e_commerce/pages/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
