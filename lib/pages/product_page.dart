@@ -6,7 +6,13 @@ class ProductPage extends StatefulWidget {
   final String price;
   final String detail;
   final String categoryname;
-  const ProductPage(
+  final Map<String, String> map = {
+    "Headphones": 'images/head.jpg',
+    "Watch": 'images/phone.jpg',
+    "Laptop": 'images/laptop1.jpg',
+    "AirPods": 'images/Pods.jpg'
+  };
+  ProductPage(
       {super.key,
       required this.name,
       required this.price,
@@ -51,7 +57,7 @@ class _ProductPageState extends State<ProductPage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
-                        "images/head-nbg.png",
+                        widget.map[widget.categoryname]!,
                         height: 350,
                         width: 350,
                         fit: BoxFit.cover,

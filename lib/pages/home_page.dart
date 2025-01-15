@@ -1,5 +1,6 @@
 import 'package:e_commerce/Widgets/support_widget.dart';
 import 'package:e_commerce/pages/categoryproduct.dart';
+import 'package:e_commerce/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,22 @@ class _HomePageState extends State<HomePage> {
     'Watch',
     'Laptop',
   ];
+  String? name, image;
+  getthepref() async {
+    name = await SharedPrefHelper.getUserName();
+    image = await SharedPrefHelper.getUserImage();
+    setState(() {
+      name = name;
+      image = image;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getthepref();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Hey , Dhaya",
+                        "Hey ,$name",
                         style: AppWidget.boldTextFieldStyle(),
                       ),
                       Text(
@@ -52,9 +69,13 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(
                       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUv4efwDYARf5XR46l60ibliIEuSnj6oRFZA&s",
+                      // image!,
                       height: 70,
                       width: 70,
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Icon(Icons.error, size: 70, color: Colors.red);
+                      },
                     ),
                   ),
                 ],
