@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/Widgets/support_widget.dart';
+import 'package:e_commerce/pages/product_page.dart';
 import 'package:e_commerce/services/database.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -65,6 +67,14 @@ class _CategoryproductState extends State<Categoryproduct> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), // Shadow position
+                          ),
+                        ],
                       ),
                       child: Column(
                         children: [
@@ -74,12 +84,13 @@ class _CategoryproductState extends State<Categoryproduct> {
                             width: 110,
                             fit: BoxFit.cover,
                           ),
+                          SizedBox(height: 10.0),
                           Text(
                             ds["Name"],
                             style: AppWidget.semiBoldTextFieldStyle(),
                           ),
                           SizedBox(
-                            height: 05.0,
+                            height: 10.0,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,9 +113,24 @@ class _CategoryproductState extends State<Categoryproduct> {
                                   color: Color(0xfffd6f3e),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProductPage(
+                                          name: ds["Name"],
+                                          price: ds["Price"],
+                                          detail: ds["Details"],
+                                          categoryname: widget.category,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               )
                             ],

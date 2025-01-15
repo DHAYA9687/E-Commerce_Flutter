@@ -24,9 +24,7 @@ class DatabaseMethods {
   }
 
   static Future<Stream<QuerySnapshot>> getProducts(String categoryname) async {
-    return await FirebaseFirestore.instance
-        .collection(categoryname)
-        .snapshots();
+    return FirebaseFirestore.instance.collection(categoryname).snapshots();
   }
 }
 
@@ -37,7 +35,7 @@ class DatabaseMethods {
 //     final bytes = image.readAsBytesSync();
 //     final base64Image = base64Encode(bytes);
 //     final uri = Uri.parse(
-//         "mongodb+srv://dhaya123:dhaya123@cluster0.amircbx.mongodb.net/products");
+//         "www:localhost/backend-url");
 //     final res = await http.post(
 //       uri,
 //       headers: {"Content-Type": "application/json"},
