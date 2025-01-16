@@ -11,10 +11,10 @@ class Categoryproduct extends StatefulWidget {
   String category;
 
   Map<String, String> map = {
-    "Headphones": 'images/head.jpg',
-    "Watch": 'images/phone.jpg',
-    "Laptop": 'images/laptop1.jpg',
-    "AirPods": 'images/Pods.jpg'
+    "Headphones": 'Images/head.jpg',
+    "Watch": 'Images/phone.jpg',
+    "Laptop": 'Images/laptop1.jpg',
+    "AirPods": 'Images/Pods.jpg'
   };
 
   @override
@@ -54,15 +54,18 @@ class _CategoryproductState extends State<Categoryproduct> {
               ? GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 1.0,
+                      childAspectRatio: 0.7,
                       mainAxisSpacing: 10.0,
                       crossAxisSpacing: 10.0),
                   itemCount: snapshot.data.docs.length,
                   itemBuilder: (context, index) {
                     DocumentSnapshot ds = snapshot.data.docs[index];
                     return Container(
-                      padding:
-                          EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+                      padding: EdgeInsets.only(
+                        top: 20.0,
+                        left: 10.0,
+                        right: 10.0,
+                      ),
                       margin: EdgeInsets.only(right: 10.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -105,7 +108,7 @@ class _CategoryproductState extends State<Categoryproduct> {
                                 ),
                               ),
                               SizedBox(
-                                width: 40.0,
+                                width: 20.0,
                               ),
                               Container(
                                 padding: EdgeInsets.all(5),

@@ -89,7 +89,7 @@ class _SignupState extends State<Signup> {
               children: [
                 Center(
                   child: Image.asset(
-                    "images/welcome2.png",
+                    "Images/welcome2.png",
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: MediaQuery.of(context).size.height * 0.4,
                   ),

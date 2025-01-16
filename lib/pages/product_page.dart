@@ -7,10 +7,10 @@ class ProductPage extends StatefulWidget {
   final String detail;
   final String categoryname;
   final Map<String, String> map = {
-    "Headphones": 'images/head.jpg',
-    "Watch": 'images/phone.jpg',
-    "Laptop": 'images/laptop1.jpg',
-    "AirPods": 'images/Pods.jpg'
+    "Headphones": 'Images/head.jpg',
+    "Watch": 'Images/phone.jpg',
+    "Laptop": 'Images/laptop1.jpg',
+    "AirPods": 'Images/Pods.jpg'
   };
   ProductPage(
       {super.key,
@@ -53,7 +53,7 @@ class _ProductPageState extends State<ProductPage> {
                 ),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 100),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(

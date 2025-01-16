@@ -12,18 +12,19 @@ class _OnboardingState extends State<OnBoarding> {
     return Scaffold(
       backgroundColor: Color(0xffecefe8),
       body: Container(
-        margin: EdgeInsets.only(top: 50.0),
+        margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0, bottom: 0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    "images/head-nbg.png",
-                    height: 450,
-                    width: 450,
+                    "Images/head-nbg.png",
+                    height: 400,
+                    width: 400,
                     fit: BoxFit.cover,
                   ),
                 ),

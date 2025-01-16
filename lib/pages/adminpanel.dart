@@ -57,7 +57,8 @@ class _AdminpanelState extends State<Adminpanel> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20),
+          margin: const EdgeInsets.only(
+              left: 20.0, right: 20.0, bottom: 20, top: 50),
           child: Form(
             key: _formkey,
             child: Column(
@@ -66,7 +67,7 @@ class _AdminpanelState extends State<Adminpanel> {
               children: [
                 Center(
                   child: Image.asset(
-                    "images/welcome2.png",
+                    "Images/welcome2.png",
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: MediaQuery.of(context).size.height * 0.4,
                   ),

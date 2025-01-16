@@ -12,10 +12,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List categories = [
-    'images/head.jpg',
-    'images/Pods.jpg',
-    'images/phone.jpg',
-    'images/laptop1.jpg',
+    'Images/head.jpg',
+    'Images/Pods.jpg',
+    'Images/phone.jpg',
+    'Images/laptop1.jpg',
   ];
   List categoryname = [
     'Headphones',
@@ -43,7 +43,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xfff2f2f2),
-      body: SingleChildScrollView(
+      body: // name == null
+          //     ? Center(child: CircularProgressIndicator()):
+          SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
           child: Column(
@@ -184,32 +186,32 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   children: const [
                     AllProducts(
-                      image: "images/head.jpg",
+                      image: "Images/head.jpg",
                       name: "Headphone",
                       price: "\$100",
                     ),
                     AllProducts(
-                      image: "images/Pods.jpg",
+                      image: "Images/Pods.jpg",
                       name: "Airpods",
                       price: "\$200",
                     ),
                     AllProducts(
-                      image: "images/laptop3-nbg.png",
+                      image: "Images/laptop3-nbg.png",
                       name: "Phone",
                       price: "\$300",
                     ),
                     AllProducts(
-                      image: "images/phone2.png",
+                      image: "Images/phone2.png",
                       name: "Laptop",
                       price: "\$400",
                     ),
                     AllProducts(
-                      image: "images/mouse-nbg.png",
+                      image: "Images/mouse-nbg.png",
                       name: "Mouse",
                       price: "\$300",
                     ),
                     AllProducts(
-                      image: "images/laptop2.jpg",
+                      image: "Images/laptop2.jpg",
                       name: "Laptop",
                       price: "\$500",
                     ),
